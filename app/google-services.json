@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "860409344707",
+    "firebase_url": "https://imprime-50f5a.firebaseio.com",
+    "project_id": "imprime-50f5a",
+    "storage_bucket": "imprime-50f5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860409344707:android:0e718b95ef7b66a7",
+        "android_client_info": {
+          "package_name": "com.example.bhavesh.imprime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860409344707-4s395gbak9kf87tipmpdqtriml44e0g5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bhavesh.imprime",
+            "certificate_hash": "c8f63f2cbbde317d6ad880ba3415adc5addb0f50"
+          }
+        },
+        {
+          "client_id": "860409344707-mvmh5d19jn4i3c192m5c13vnkth8esj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC880uxItYXVIQGVIVKIY55XIJhw24cLqI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860409344707-mvmh5d19jn4i3c192m5c13vnkth8esj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
