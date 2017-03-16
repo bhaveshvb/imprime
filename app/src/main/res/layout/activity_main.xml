@@ -8,6 +8,13 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.bhavesh.imprime.MainActivity">
 
+   <fragment
+      android:name="com.example.bhavesh.imprime.fdesign"
+       android:layout_width="360dp"
+       android:layout_height="460dp"
+       android:id="@+id/fdesign"
+       />
+
  <!--bgtools-->
     <ImageView
         android:layout_width="360dp"
