@@ -62,6 +62,7 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private Button mSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

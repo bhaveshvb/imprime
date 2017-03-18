@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 b.putInt(key2, 350);
                 b.putBundle("key3", b);*/
                 //ptype.putExtra(key,"this is from main");
-               // startActivity(ptype);
+               // startActivity(iptype);
                 fragment_action(R.id.ftype);
             }
         });

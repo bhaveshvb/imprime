@@ -37,12 +37,14 @@
             android:layout_width="180dp"
             android:layout_height="150dp"
             tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="0dp" />
+            tools:layout_editor_absoluteX="0dp"
+                android:src="@mipmap/yellow_cap"/>
 
             <ImageView
             android:id="@+id/i2"
             android:layout_width="180dp"
-            android:layout_height="150dp" />
+            android:layout_height="150dp"
+                android:src="@mipmap/black_hoodie"/>
 
         </TableRow>
 
@@ -51,12 +53,14 @@
         <ImageView
             android:id="@+id/i3"
             android:layout_width="180dp"
-            android:layout_height="150dp" />
+            android:layout_height="150dp"
+            android:src="@mipmap/grey_bag"/>
 
         <ImageView
             android:id="@+id/i4"
             android:layout_width="180dp"
-            android:layout_height="150dp" />
+            android:layout_height="150dp"
+            android:src="@mipmap/yellow_jersey"/>
 
         </TableRow>
 
@@ -65,12 +69,14 @@
             <ImageView
                 android:id="@+id/i5"
                 android:layout_width="180dp"
-                android:layout_height="150dp"/>
+                android:layout_height="150dp"
+                android:src="@mipmap/green_tshirt"/>
 
             <ImageView
                 android:id="@+id/i6"
                 android:layout_width="180dp"
-                android:layout_height="150dp"/>
+                android:layout_height="150dp"
+                android:src="@mipmap/white_jersey"/>
 
 
         </TableRow>
@@ -80,12 +86,14 @@
                     <ImageView
                         android:id="@+id/i7"
                         android:layout_width="180dp"
-                        android:layout_height="150dp" />
+                        android:layout_height="150dp"
+                        android:src="@mipmap/black_cap"/>
 
                     <ImageView
                         android:id="@+id/i8"
                         android:layout_width="180dp"
-                        android:layout_height="150dp" />
+                        android:layout_height="150dp"
+                        android:src="@mipmap/white_hoodie"/>
 
                 </TableRow>
 
@@ -94,12 +102,14 @@
                     <ImageView
                         android:id="@+id/i9"
                         android:layout_width="180dp"
-                        android:layout_height="150dp" />
+                        android:layout_height="150dp"
+                        android:src="@mipmap/blue_tshirt"/>
 
                     <ImageView
                         android:id="@+id/i10"
                         android:layout_width="180dp"
-                        android:layout_height="150dp" />
+                        android:layout_height="150dp"
+                        android:src="@mipmap/black_bag"/>
 
                 </TableRow>
 

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_signup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.bhavesh.imprime.Signup">
+
+    <TextView
+        android:text="Sign Up"
+        android:layout_width="92dp"
+        android:layout_height="36dp"
+        android:id="@+id/signup"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="250dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintLeft_toLeftOf="@+id/signup"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/signup" />
+
+    <TextView
+        android:text="DOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dob"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintLeft_toLeftOf="@+id/name"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:text="Gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gender"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/dob"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintLeft_toLeftOf="@+id/dob" />
+
+    <TextView
+        android:text="Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/location"
+        app:layout_constraintLeft_toLeftOf="@+id/gender"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/gender"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:text="Contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/contact"
+        app:layout_constraintLeft_toLeftOf="@+id/location"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/location"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:text="Email ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        app:layout_constraintLeft_toLeftOf="@+id/contact"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/contact"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        app:layout_constraintLeft_toLeftOf="@+id/email"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:text="Confirm Password"
+        android:layout_width="93dp"
+        android:layout_height="46dp"
+        android:id="@+id/confrim_password"
+        app:layout_constraintLeft_toLeftOf="@+id/password"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signup_button"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="200dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/name_et"
+        android:hint="Enter your name"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/signup" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/date_et"
+        android:hint="DD/MM/YYYY"
+        android:onClick="showDatePicker"
+        app:layout_constraintLeft_toLeftOf="@+id/name_et"
+        app:layout_constraintTop_toBottomOf="@+id/name_et"
+        app:layout_constraintRight_toRightOf="@+id/name_et" />
+
+    <!--    <DatePicker
+        android:layout_width="217dp"
+        android:layout_height="131dp"
+        tools:layout_editor_absoluteY="74dp"
+        android:id="@+id/datePicker_et"
+        app:layout_constraintLeft_toLeftOf="@+id/name_et" />-->
+
+    <Spinner
+        android:layout_width="217dp"
+        android:layout_height="29dp"
+        android:id="@+id/spinner_et"
+        app:layout_constraintLeft_toLeftOf="@+id/male_radio"
+        app:layout_constraintTop_toBottomOf="@+id/male_radio"
+        android:layout_marginTop="12dp"
+        app:layout_constraintRight_toRightOf="@+id/date_et" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/contact_et"
+        app:layout_constraintLeft_toLeftOf="@+id/spinner_et"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_et"
+        app:layout_constraintRight_toRightOf="@+id/spinner_et" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/email_et"
+        app:layout_constraintLeft_toLeftOf="@+id/contact_et"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/contact_et"
+        app:layout_constraintRight_toRightOf="@+id/contact_et" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/password_et"
+        app:layout_constraintLeft_toLeftOf="@+id/email_et"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/email_et"
+        app:layout_constraintRight_toRightOf="@+id/email_et" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/confirm_pass_et"
+        app:layout_constraintLeft_toLeftOf="@+id/password_et"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/password_et"
+        app:layout_constraintRight_toRightOf="@+id/password_et" />
+
+    <RadioButton
+        android:text="Male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/male_radio"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/date_et"
+        app:layout_constraintLeft_toLeftOf="@+id/date_et"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <RadioButton
+        android:text="Female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/female_radio"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginStart="24dp"
+        app:layout_constraintLeft_toRightOf="@+id/male_radio"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/date_et" />
+
+</android.support.constraint.ConstraintLayout>
