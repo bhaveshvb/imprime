@@ -16,8 +16,8 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String key = "key";
-    private static final String key2 = "key2";
+   /* private static final String key = "key";
+    private static final String key2 = "key2";*/
     private ImageView tshirt;
     private ImageView home;
     private ImageView design;
@@ -38,13 +38,21 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
+        home = (ImageView) findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent idesign = new Intent(MainActivity.this,Home.class);
 
+                fragment_action(R.id.fhome);
+            }
+        });
 
         tshirt = (ImageView) findViewById(R.id.ptype);
         tshirt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ptype = new Intent(MainActivity.this,type.class);
+                Intent iptype = new Intent(MainActivity.this,Ftype.class);
               /*  Bundle b = new Bundle();
                 b.putString(key, "This is type  activity");
                 b.putInt(key2, 350);
@@ -59,13 +67,8 @@ public class MainActivity extends AppCompatActivity {
         design.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ptype = new Intent(MainActivity.this,type.class);
-              /*  Bundle b = new Bundle();
-                b.putString(key, "This is type  activity");
-                b.putInt(key2, 350);
-                b.putBundle("key3", b);*/
-                //ptype.putExtra(key,"this is from main");
-                // startActivity(ptype);
+                Intent idesign = new Intent(MainActivity.this,fdesign.class);
+
                 fragment_action(R.id.fdesign);
             }
         });
@@ -74,13 +77,8 @@ public class MainActivity extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ptype = new Intent(MainActivity.this,type.class);
-              /*  Bundle b = new Bundle();
-                b.putString(key, "This is type  activity");
-                b.putInt(key2, 350);
-                b.putBundle("key3", b);*/
-                //ptype.putExtra(key,"this is from main");
-                // startActivity(ptype);
+                Intent iprofile = new Intent(MainActivity.this,Fprofile.class);
+
                 fragment_action(R.id.fprofile);
             }
         });
@@ -124,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
             fdesign fragment = new fdesign();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         }
 
@@ -132,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
             Ftype fragment = new Ftype();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         }
 
@@ -140,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
             Fprofile fragment = new Fprofile();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         }
     }
