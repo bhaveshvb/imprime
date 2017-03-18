@@ -18,7 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String key = "key";
     private static final String key2 = "key2";
-    public ImageView tshirt;
+    private ImageView tshirt;
+    private ImageView home;
+    private ImageView design;
+    private ImageView profile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +32,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fdesign fragment = new fdesign();
+        Home fragment = new Home();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
+
+
+
 
         tshirt = (ImageView) findViewById(R.id.ptype);
         tshirt.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +50,38 @@ public class MainActivity extends AppCompatActivity {
                 b.putInt(key2, 350);
                 b.putBundle("key3", b);*/
                 //ptype.putExtra(key,"this is from main");
-                startActivity(ptype);
+               // startActivity(ptype);
+                fragment_action(R.id.ftype);
+            }
+        });
+
+        design = (ImageView) findViewById(R.id.design);
+        design.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ptype = new Intent(MainActivity.this,type.class);
+              /*  Bundle b = new Bundle();
+                b.putString(key, "This is type  activity");
+                b.putInt(key2, 350);
+                b.putBundle("key3", b);*/
+                //ptype.putExtra(key,"this is from main");
+                // startActivity(ptype);
+                fragment_action(R.id.fdesign);
+            }
+        });
+
+        profile = (ImageView) findViewById(R.id.profile);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ptype = new Intent(MainActivity.this,type.class);
+              /*  Bundle b = new Bundle();
+                b.putString(key, "This is type  activity");
+                b.putInt(key2, 350);
+                b.putBundle("key3", b);*/
+                //ptype.putExtra(key,"this is from main");
+                // startActivity(ptype);
+                fragment_action(R.id.fprofile);
             }
         });
 
@@ -72,6 +110,39 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    
+    void fragment_action(int frag_id)
+    {
+        if (frag_id == R.id.fhome){
+
+            Home fragment = new Home();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+        }
+
+        else if (frag_id == R.id.fdesign){
+
+            fdesign fragment = new fdesign();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+        }
+
+        else if (frag_id == R.id.ftype){
+
+            Ftype fragment = new Ftype();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+        }
+
+        else if (frag_id == R.id.fprofile){
+
+            Fprofile fragment = new Fprofile();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+        }
+    }
 
 }
