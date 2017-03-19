@@ -3,6 +3,7 @@ package com.example.bhavesh.imprime;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -29,6 +30,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +53,7 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "foo@example.com:hello", "bar@example.com:world", "bhavesh@abc.com:12345"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -62,12 +65,16 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private Button mSignUp;
+    private TextView mSignUp;
+
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        firebaseAuth = FirebaseAuth.getInstance();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -81,6 +88,15 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        mSignUp = (TextView) findViewById(R.id.register_link);
+        mSignUp.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent isignup = new Intent(LoginActivity.this, Signup.class);
+                startActivity(isignup);
             }
         });
 
@@ -326,7 +342,8 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
             }
 
             // TODO: register the new account here.
-            return true;
+            //mSignUp = (Button) findViewById(R.id.email_sign_in_button);
+            return false;//changed
         }
 
         @Override
@@ -336,11 +353,14 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
             if (success) {
                 finish();
+                Intent isignin = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(isignin);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }
         }
+
 
         @Override
         protected void onCancelled() {
