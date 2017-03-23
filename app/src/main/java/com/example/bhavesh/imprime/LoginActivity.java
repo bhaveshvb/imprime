@@ -29,7 +29,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -68,6 +72,7 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
     private TextView mSignUp;
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -320,6 +325,29 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
         UserLoginTask(String email, String password) {
             mEmail = email;
             mPassword = password;
+            //checking if email and passwords are empty
+            if(TextUtils.isEmpty(email)){
+                Toast.makeText(LoginActivity.this,"Please enter email",Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if(TextUtils.isEmpty(password)){
+                Toast.makeText(LoginActivity.this,"Please enter password", Toast.LENGTH_LONG).show();
+                return;
+            }
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                          //  progressDialog.dismiss();
+                            //if the task is successfull
+                            if(task.isSuccessful()){
+                                //start the Main activity
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            }
+                        }
+                    });
         }
 
         @Override
@@ -345,7 +373,19 @@ LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
             //mSignUp = (Button) findViewById(R.id.email_sign_in_button);
             return false;//changed
         }
-
+           /*firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                progressDialog.dismiss();
+                //if the task is successfull
+                if(task.isSuccessful()){
+                    //start the profile activity
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                }
+            }
+        }); */
         @Override
         protected void onPostExecute(final Boolean success) {
             mAuthTask = null;
