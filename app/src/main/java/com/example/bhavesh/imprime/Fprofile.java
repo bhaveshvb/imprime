@@ -35,7 +35,7 @@ public class Fprofile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fprofile, container, false);
-       // firebaseAuth = FirebaseAuth.getInstance();
+        // firebaseAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -57,8 +57,8 @@ public class Fprofile extends Fragment {
         }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-            welcome = (TextView) view.findViewById(R.id.welcome);
-            welcome.append(user.getEmail());
+        welcome = (TextView) view.findViewById(R.id.welcome);
+        welcome.append(user.getEmail());
 
 
         logout = (Button) view.findViewById(R.id.logout);
@@ -67,11 +67,13 @@ public class Fprofile extends Fragment {
             @Override
             public void onClick(View view) {
                 //place your action here
+                getActivity().finish();
                 Intent ilogout = new Intent(getActivity(), LoginActivity.class);
                 startActivity(ilogout);
 
             }
         });
     }
+
 }
 
