@@ -74,7 +74,51 @@ public class Signup extends AppCompatActivity implements View.OnClickListener, A
 
     }
 
+
+    private void createuser() {
+        email_ET = (EditText) findViewById(R.id.email_et);
+        password_ET = (EditText) findViewById(R.id.password_et);
+
+        gender_ET = (RadioGroup) findViewById(R.id.radioGroup);
+        int selectedId = gender_ET.getCheckedRadioButtonId();
+        gen_ET = (RadioButton) findViewById(selectedId);
+        male_ET = (RadioButton) findViewById(R.id.male_radio);
+        female_ET = (RadioButton) findViewById(R.id.female_radio);
+
+        //  String loc = location_ET.getText().toString;
+
+        name_ET = (EditText) findViewById(R.id.name_et);
+        dob_ET = (EditText) findViewById(R.id.date_et);
+        contact_ET = (EditText) findViewById(R.id.contact_et);
+        confirm_password_ET = (EditText) findViewById(R.id.confirm_pass_et);
+
+        String email = email_ET.getText().toString();
+        String password = password_ET.getText().toString();
+
+        // firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+
+                            Toast.makeText(Signup.this, "Registered Successfully. Login to Continue", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(Signup.this, LoginActivity.class);
+                            startActivity(i);
+                        } else {
+                            Toast.makeText(Signup.this, "Failed to Register. Please try again!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+    }
+
     private void SaveSigupDetails(){
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+       // String userid = user.getUid().toString();
+        String userid = name_ET.getText().toString().trim();
 
         String name = name_ET.getText().toString().trim();
         String dob = dob_ET.getText().toString().trim();
@@ -85,53 +129,19 @@ public class Signup extends AppCompatActivity implements View.OnClickListener, A
         String email = name_ET.getText().toString().trim();
         String password = password_ET.getText().toString().trim();
         String cnfpassword = confirm_password_ET.getText().toString().trim();
+        Toast.makeText(this, userid, Toast.LENGTH_LONG).show();
 
-        SignupDetails signupDetails = new SignupDetails(name, dob, gender, location, contact, email, password, cnfpassword);
+        SignupDetails signupDetails = new SignupDetails(userid, name, dob, gender, location, contact, email, password, cnfpassword);
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        databaseReference.child(user.getUid()).setValue(signupDetails);
+
+        //databaseReference.child("userinfo").child(user.getUid()).setValue(signupDetails);
+        databaseReference.child("userinfo").child(userid).setValue(signupDetails);
 
         Toast.makeText(this, "Information Saved", Toast.LENGTH_SHORT).show();
 
     }
 
-            private void createuser() {
-                email_ET = (EditText) findViewById(R.id.email_et);
-                password_ET = (EditText) findViewById(R.id.password_et);
-
-               gender_ET = (RadioGroup) findViewById(R.id.radioGroup);
-               int selectedId = gender_ET.getCheckedRadioButtonId();
-                gen_ET = (RadioButton) findViewById(selectedId);
-                male_ET = (RadioButton) findViewById(R.id.male_radio);
-               female_ET = (RadioButton) findViewById(R.id.female_radio);
-
-              //  String loc = location_ET.getText().toString;
-
-                name_ET = (EditText) findViewById(R.id.name_et);
-                dob_ET = (EditText) findViewById(R.id.date_et);
-                contact_ET = (EditText) findViewById(R.id.contact_et);
-                confirm_password_ET = (EditText) findViewById(R.id.confirm_pass_et);
-
-                String email = email_ET.getText().toString();
-                String password = password_ET.getText().toString();
-
-               // firebaseAuth = FirebaseAuth.getInstance();
-                firebaseAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(Signup.this, "Registered Successfully. Login to Continue", Toast.LENGTH_SHORT).show();
-                                            Intent i = new Intent(Signup.this, LoginActivity.class);
-                                            startActivity(i);
-                                        } else {
-                                            Toast.makeText(Signup.this, "Failed to Register. Please try again!", Toast.LENGTH_SHORT).show();
-                                        }
-
-                                    }
-                        });
-            }
 
     @Override
     public void onClick(View v) {
@@ -155,5 +165,10 @@ public class Signup extends AppCompatActivity implements View.OnClickListener, A
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
+    @Override
+    public void onBackPressed() {
+        finish();
+       Intent i = new Intent(Signup.this, LoginActivity.class);
+        startActivity(i);
+    }
 }
