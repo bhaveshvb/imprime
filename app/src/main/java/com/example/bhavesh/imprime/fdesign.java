@@ -1,12 +1,24 @@
 package com.example.bhavesh.imprime;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.io.IOException;
+
+import static android.app.Activity.RESULT_OK;
 
 
 /**
@@ -17,7 +29,14 @@ import android.view.ViewGroup;
  * Use the {@link fdesign#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fdesign extends Fragment {
+public class fdesign extends Fragment{
+    private static final int PICK_IMAGE_REQUEST = 234;
+    private ImageView user_image;
+    private ImageView i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14;
+    private ImageView i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26, i27, i28;
+    private Button b_choose, b_upload;
+    private Uri userimagepath;
+    private FirebaseAuth firebaseAuth;
    /* // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,7 +84,80 @@ public class fdesign extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fdesign, container, false);
+
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() == null) {
+
+            startActivity(new Intent(getActivity(), LoginActivity.class));
+        }
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        user_image = (ImageView) view.findViewById(R.id.user_imageView);
+        b_choose = (Button) view.findViewById(R.id.choose);
+        b_upload = (Button) view.findViewById(R.id.upload);
+
+        b_choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //choose an image
+            showFileChooser();
+
+            }
+        });
+
+        b_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //upload the image
+
+
+            }
+        });
+
+
+    }
+
+    private void showFileChooser(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"Select an Image"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
+          userimagepath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), userimagepath);
+                user_image.setImageBitmap(bitmap);
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+
+        }
+
+
+    }
+
+    /* @Override
+    public void onClick(View v) {
+        if (v == b_choose){
+            //choose an image
+        }
+        else if (v == b_upload){
+            //upload the image
+        }
+    }*/
+
 
 /*    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
