@@ -1,21 +1,34 @@
 package com.example.bhavesh.imprime;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
@@ -30,6 +43,8 @@ import static android.app.Activity.RESULT_OK;
  * create an instance of this fragment.
  */
 public class fdesign extends Fragment{
+    public static final String STORAGE_PATH_UPLOADS = "logos/";
+    public static final String DATABASE_PATH_UPLOADS = "userinfo";
     private static final int PICK_IMAGE_REQUEST = 234;
     private ImageView user_image;
     private ImageView i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14;
@@ -37,6 +52,8 @@ public class fdesign extends Fragment{
     private Button b_choose, b_upload;
     private Uri userimagepath;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference mdatabase;
+    private StorageReference mstorageref;
    /* // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -98,6 +115,49 @@ public class fdesign extends Fragment{
         }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
+        mdatabase = FirebaseDatabase.getInstance().getReference(DATABASE_PATH_UPLOADS);
+        // Read from the database
+/*        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });*/
+
+      //  mstorageref = FirebaseStorage.getInstance().getReference(STORAGE_PATH_UPLOADS);
+        mstorageref = FirebaseStorage.getInstance().getReference();
+
+
+        File localFile = null;
+        try {
+            localFile = File.createTempFile("images", "jpg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mstorageref.getFile(localFile)
+                .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                        // Successfully downloaded data to local file
+                        // ...
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle failed download
+                // ...
+            }
+        });
+
         user_image = (ImageView) view.findViewById(R.id.user_imageView);
         b_choose = (Button) view.findViewById(R.id.choose);
         b_upload = (Button) view.findViewById(R.id.upload);
@@ -115,12 +175,48 @@ public class fdesign extends Fragment{
             @Override
             public void onClick(View view) {
                 //upload the image
+                fileUploader();
 
 
             }
         });
 
 
+    }
+
+    private void fileUploader(){
+        if (userimagepath != null) {
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setTitle("Uploading....");
+            progressDialog.show();
+
+            StorageReference ulogo = mstorageref.child("userlogos/rivers.jpg");
+
+            ulogo.putFile(userimagepath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                progressDialog.dismiss();
+                            Toast.makeText(getContext(), "File Uplaoded", Toast.LENGTH_LONG).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle unsuccessful uploads
+                            progressDialog.dismiss();
+                            Toast.makeText(getContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                           /* double progress = (100.0 * taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                            progressDialog.setMessage(((int) progress) + "%uploaded");*/
+                        }
+                    });
+        }
     }
 
     private void showFileChooser(){
