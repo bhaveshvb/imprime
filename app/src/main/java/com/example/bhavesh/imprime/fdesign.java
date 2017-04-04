@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
@@ -44,7 +46,7 @@ import static android.app.Activity.RESULT_OK;
  * Use the {@link fdesign#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fdesign extends Fragment{
+public class fdesign extends Fragment implements View.OnClickListener{
     public static final String STORAGE_PATH_UPLOADS = "logos/";
     public static final String DATABASE_PATH_UPLOADS = "userinfo";
     private static final int PICK_IMAGE_REQUEST = 234;
@@ -56,6 +58,7 @@ public class fdesign extends Fragment{
     private FirebaseAuth firebaseAuth;
     private DatabaseReference mdatabase;
     private StorageReference mstorageref;
+    private byte[] data;
    /* // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -304,6 +307,8 @@ public class fdesign extends Fragment{
                 .load(storageReference.child("bmw.jpg"))
                 .into(i32);
 
+        i1.setOnClickListener(this);
+
 
         File localFile = null;
         try{
@@ -358,7 +363,7 @@ public class fdesign extends Fragment{
             progressDialog.setTitle("Uploading....");
             progressDialog.show();
 
-            StorageReference ulogo = mstorageref.child("userlogos/rivers.jpg");
+            StorageReference ulogo = mstorageref.child("userlogos/1.jpg");
 
             ulogo.putFile(userimagepath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -410,6 +415,50 @@ public class fdesign extends Fragment{
         }
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == i1){
+            // Get the data from an ImageView as bytes
+            i1.setDrawingCacheEnabled(true);
+            i1.buildDrawingCache();
+            Bitmap bitmap = i1.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+            //place your action here
+            Forder fragment = new Forder();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+        }
+    }
+
+    public void userlogoUploader(){
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setTitle("Saving in database....");
+        progressDialog.show();
+
+        UploadTask uploadTask = mstorageref.child("userlogos/1").putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+                progressDialog.dismiss();
+                Toast.makeText(getContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                progressDialog.dismiss();
+                // Toast.makeText(getContext(), "Success! Now select a design", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     /* @Override

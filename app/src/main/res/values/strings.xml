@@ -23,10 +23,10 @@
 
     <!--location spinner strings-->
     <string-array name="location_array">
-    <item name="mumbai">Mumbai</item>
-    <item name="pune">Pune</item>
-    <item name="banglore">Banglore</item>
-    <item name="kolkata">Kolkata</item>
+        <item name="mumbai">Mumbai</item>
+        <item name="pune">Pune</item>
+        <item name="banglore">Banglore</item>
+        <item name="kolkata">Kolkata</item>
     </string-array>
 
 </resources>
