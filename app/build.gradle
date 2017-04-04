@@ -61,4 +61,6 @@ dependencies {
 dependencies {
     compile 'com.google.firebase:firebase-storage:10.0.1'
     compile 'com.google.firebase:firebase-auth:10.0.1'
+    // FirebaseUI Storage only
+    compile 'com.firebaseui:firebase-ui-storage:0.6.0'
 }
