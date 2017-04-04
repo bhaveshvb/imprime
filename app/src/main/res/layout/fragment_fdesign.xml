@@ -9,7 +9,6 @@
         <TextView
         android:id="@+id/fdesign"
         android:layout_width="wrap_content"
-        android:text="This is fdesign"
         android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
@@ -29,7 +28,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_upload"
-                android:text="Choose Image from Gallery"/>
+                android:text="Choose Image from Gallery"
+                android:textStyle="bold"
+                android:textSize="@dimen/activity_horizontal_margin"/>
 
             <TableLayout
           android:layout_width="match_parent"
@@ -44,19 +45,25 @@
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:id="@+id/l1"
+                        android:src="@drawable/batman"
                         />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l2"/>
+                        android:id="@+id/l2"
+                        android:src="@drawable/spider"/>
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l3"/>
+                        android:id="@+id/l3"
+                        android:src="@drawable/github_octocat"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l4"/>
+                        android:id="@+id/l4"
+                        android:src="@drawable/github"
+                        />
 
 
                 </TableRow>
@@ -66,21 +73,28 @@
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l5"/>
+                        android:id="@+id/l5"
+                        android:src="@drawable/adidas"
+                        />
 
                     <ImageView
                         android:id="@+id/l6"
                         android:layout_width="90dp"
-                        android:layout_height="90dp" />
+                        android:layout_height="90dp"
+                        android:src="@drawable/apple"/>
 
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l7"/>
+                        android:id="@+id/l7"
+                        android:src="@drawable/dell"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l8"/>
+                        android:id="@+id/l8"
+                        android:src="@drawable/devil"
+                        />
 
 
                 </TableRow>
@@ -90,19 +104,27 @@
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l9"/>
+                        android:id="@+id/l9"
+                        android:src="@drawable/eagle"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l10"/>
+                        android:id="@+id/l10"
+                        android:src="@drawable/ea"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l11"/>
+                        android:id="@+id/l11"
+                        android:src="@drawable/leaf"
+                       />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l12"/>
+                        android:id="@+id/l12"
+                        android:src="@drawable/lion"
+                        />
 
 
                 </TableRow>
@@ -112,19 +134,27 @@
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l13"/>
+                        android:id="@+id/l13"
+                        android:src="@drawable/monster"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l14"/>
+                        android:id="@+id/l14"
+                        android:src="@drawable/moto"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l15"/>
+                        android:id="@+id/l15"
+                        android:src="@drawable/nike"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l16"/>
+                        android:id="@+id/l16"
+                        android:src="@drawable/ny"
+                        />
 
 
                 </TableRow>
@@ -134,19 +164,27 @@
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l17"/>
+                        android:id="@+id/l17"
+                        android:src="@drawable/playboy"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l18"/>
+                        android:id="@+id/l18"
+                        android:src="@drawable/puma"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l19"/>
+                        android:id="@+id/l19"
+                        android:src="@drawable/twitter"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l20"/>
+                        android:id="@+id/l20"
+                        android:src="@drawable/bmw"
+                        />
 
 
                 </TableRow>
@@ -156,19 +194,53 @@
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l21"/>
+                        android:id="@+id/l21"
+                        android:src="@drawable/skull"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l22"/>
+                        android:id="@+id/l22"
+                        android:src="@drawable/mj"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l23"/>
+                        android:id="@+id/l23"
+
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l24"/>
+                        android:id="@+id/l24"
+
+                        />
+
+
+                </TableRow>
+
+               <!-- <TableRow>
+
+                    <ImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/l25"
+                        />
+                    <ImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/l26"
+                        />
+                    <ImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/l27"
+                        />
+                    <ImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/l28"
+                        />
 
 
                 </TableRow>
@@ -178,22 +250,26 @@
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l25"/>
+                        android:id="@+id/l29"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l26"/>
+                        android:id="@+id/l30"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l27"/>
+                        android:id="@+id/l31"
+                        />
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:id="@+id/l28"/>
+                        android:id="@+id/l32"
+                        />
 
 
-                </TableRow>
+                </TableRow>-->
 
 
 

@@ -10,7 +10,6 @@
         android:id="@+id/fhome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is Home fragment"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="0dp" />
     <ScrollView
