@@ -164,6 +164,12 @@ public class Ftype extends Fragment implements View.OnClickListener{
             i2.setOnClickListener(this);
             i3.setOnClickListener(this);
             i4.setOnClickListener(this);
+            i5.setOnClickListener(this);
+            i6.setOnClickListener(this);
+            i7.setOnClickListener(this);
+            i8.setOnClickListener(this);
+            i9.setOnClickListener(this);
+            i10.setOnClickListener(this);
 
 
     }
@@ -205,11 +211,6 @@ public class Ftype extends Fragment implements View.OnClickListener{
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             data = baos.toByteArray();
             fileUploader();
-            //place your action here
-            fdesign fragment = new fdesign();
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
         }
         else if (v == i2){
             // Get the data from an ImageView as bytes
@@ -220,11 +221,6 @@ public class Ftype extends Fragment implements View.OnClickListener{
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             data = baos.toByteArray();
             fileUploader();
-            //place your action here
-            fdesign fragment = new fdesign();
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
         }
         else if (v == i3){
             // Get the data from an ImageView as bytes
@@ -235,11 +231,6 @@ public class Ftype extends Fragment implements View.OnClickListener{
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             data = baos.toByteArray();
             fileUploader();
-            //place your action here
-            fdesign fragment = new fdesign();
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
         }
         else if (v == i4){
             // Get the data from an ImageView as bytes
@@ -250,30 +241,72 @@ public class Ftype extends Fragment implements View.OnClickListener{
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             data = baos.toByteArray();
             fileUploader();
-            //place your action here
-            fdesign fragment = new fdesign();
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
         }
         else if (v == i5){
-
+            // Get the data from an ImageView as bytes
+            i5.setDrawingCacheEnabled(true);
+            i5.buildDrawingCache();
+            Bitmap bitmap = i5.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            fileUploader();
         }
         else if (v == i6){
-
+            // Get the data from an ImageView as bytes
+            i6.setDrawingCacheEnabled(true);
+            i6.buildDrawingCache();
+            Bitmap bitmap = i6.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            fileUploader();
         }
         else if (v == i7){
-
+            // Get the data from an ImageView as bytes
+            i7.setDrawingCacheEnabled(true);
+            i7.buildDrawingCache();
+            Bitmap bitmap = i7.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            fileUploader();
         }
         else if (v == i8){
-
+            // Get the data from an ImageView as bytes
+            i8.setDrawingCacheEnabled(true);
+            i8.buildDrawingCache();
+            Bitmap bitmap = i8.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            fileUploader();
         }
         else if (v == i9){
-
+            // Get the data from an ImageView as bytes
+            i9.setDrawingCacheEnabled(true);
+            i9.buildDrawingCache();
+            Bitmap bitmap = i9.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            fileUploader();
         }
         else if (v == i10){
-
+            // Get the data from an ImageView as bytes
+            i10.setDrawingCacheEnabled(true);
+            i10.buildDrawingCache();
+            Bitmap bitmap = i10.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            fileUploader();
         }
 
+        //place your action here
+        fdesign fragment = new fdesign();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
 }

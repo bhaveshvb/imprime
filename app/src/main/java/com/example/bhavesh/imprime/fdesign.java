@@ -308,6 +308,37 @@ public class fdesign extends Fragment implements View.OnClickListener{
                 .into(i32);
 
         i1.setOnClickListener(this);
+        i2.setOnClickListener(this);
+        i3.setOnClickListener(this);
+        i4.setOnClickListener(this);
+        i5.setOnClickListener(this);
+        i6.setOnClickListener(this);
+        i7.setOnClickListener(this);
+        i8.setOnClickListener(this);
+        i9.setOnClickListener(this);
+        i10.setOnClickListener(this);
+        i11.setOnClickListener(this);
+        i12.setOnClickListener(this);
+        i13.setOnClickListener(this);
+        i14.setOnClickListener(this);
+        i15.setOnClickListener(this);
+        i16.setOnClickListener(this);
+        i17.setOnClickListener(this);
+        i18.setOnClickListener(this);
+        i19.setOnClickListener(this);
+        i20.setOnClickListener(this);
+        i21.setOnClickListener(this);
+        i22.setOnClickListener(this);
+        i23.setOnClickListener(this);
+        i24.setOnClickListener(this);
+        i25.setOnClickListener(this);
+        i26.setOnClickListener(this);
+        i27.setOnClickListener(this);
+        i28.setOnClickListener(this);
+        i29.setOnClickListener(this);
+        i30.setOnClickListener(this);
+        i31.setOnClickListener(this);
+        i32.setOnClickListener(this);
 
 
         File localFile = null;
@@ -349,6 +380,10 @@ public class fdesign extends Fragment implements View.OnClickListener{
             public void onClick(View view) {
                 //upload the image
                 fileUploader();
+                Forder fragment = new Forder();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
 
 
             }
@@ -428,12 +463,321 @@ public class fdesign extends Fragment implements View.OnClickListener{
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             data = baos.toByteArray();
             userlogoUploader();
-            //place your action here
-            Forder fragment = new Forder();
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
         }
+        else if (v == i2){
+            // Get the data from an ImageView as bytes
+            i2.setDrawingCacheEnabled(true);
+            i2.buildDrawingCache();
+            Bitmap bitmap = i2.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i3){
+            // Get the data from an ImageView as bytes
+            i3.setDrawingCacheEnabled(true);
+            i3.buildDrawingCache();
+            Bitmap bitmap = i3.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i4){
+            // Get the data from an ImageView as bytes
+            i4.setDrawingCacheEnabled(true);
+            i4.buildDrawingCache();
+            Bitmap bitmap = i4.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i5){
+            // Get the data from an ImageView as bytes
+            i5.setDrawingCacheEnabled(true);
+            i5.buildDrawingCache();
+            Bitmap bitmap = i5.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i6){
+            // Get the data from an ImageView as bytes
+            i6.setDrawingCacheEnabled(true);
+            i6.buildDrawingCache();
+            Bitmap bitmap = i6.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i7){
+            // Get the data from an ImageView as bytes
+            i7.setDrawingCacheEnabled(true);
+            i7.buildDrawingCache();
+            Bitmap bitmap = i7.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i8){
+            // Get the data from an ImageView as bytes
+            i8.setDrawingCacheEnabled(true);
+            i8.buildDrawingCache();
+            Bitmap bitmap = i8.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i9){
+            // Get the data from an ImageView as bytes
+            i9.setDrawingCacheEnabled(true);
+            i9.buildDrawingCache();
+            Bitmap bitmap = i19.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i10){
+            // Get the data from an ImageView as bytes
+            i10.setDrawingCacheEnabled(true);
+            i10.buildDrawingCache();
+            Bitmap bitmap = i10.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i11){
+            // Get the data from an ImageView as bytes
+            i11.setDrawingCacheEnabled(true);
+            i11.buildDrawingCache();
+            Bitmap bitmap = i11.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i12){
+            // Get the data from an ImageView as bytes
+            i12.setDrawingCacheEnabled(true);
+            i12.buildDrawingCache();
+            Bitmap bitmap = i12.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i13){
+            // Get the data from an ImageView as bytes
+            i13.setDrawingCacheEnabled(true);
+            i13.buildDrawingCache();
+            Bitmap bitmap = i13.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i14){
+            // Get the data from an ImageView as bytes
+            i14.setDrawingCacheEnabled(true);
+            i14.buildDrawingCache();
+            Bitmap bitmap = i14.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i15){
+            // Get the data from an ImageView as bytes
+            i15.setDrawingCacheEnabled(true);
+            i15.buildDrawingCache();
+            Bitmap bitmap = i15.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i16){
+            // Get the data from an ImageView as bytes
+            i16.setDrawingCacheEnabled(true);
+            i16.buildDrawingCache();
+            Bitmap bitmap = i16.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i17){
+            // Get the data from an ImageView as bytes
+            i17.setDrawingCacheEnabled(true);
+            i17.buildDrawingCache();
+            Bitmap bitmap = i17.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i18){
+            // Get the data from an ImageView as bytes
+            i18.setDrawingCacheEnabled(true);
+            i18.buildDrawingCache();
+            Bitmap bitmap = i18.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i19){
+            // Get the data from an ImageView as bytes
+            i19.setDrawingCacheEnabled(true);
+            i19.buildDrawingCache();
+            Bitmap bitmap = i19.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i20){
+            // Get the data from an ImageView as bytes
+            i20.setDrawingCacheEnabled(true);
+            i20.buildDrawingCache();
+            Bitmap bitmap = i20.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i21){
+            // Get the data from an ImageView as bytes
+            i21.setDrawingCacheEnabled(true);
+            i21.buildDrawingCache();
+            Bitmap bitmap = i21.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i22){
+            // Get the data from an ImageView as bytes
+            i22.setDrawingCacheEnabled(true);
+            i22.buildDrawingCache();
+            Bitmap bitmap = i22.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i23){
+            // Get the data from an ImageView as bytes
+            i23.setDrawingCacheEnabled(true);
+            i23.buildDrawingCache();
+            Bitmap bitmap = i23.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i24){
+            // Get the data from an ImageView as bytes
+            i24.setDrawingCacheEnabled(true);
+            i24.buildDrawingCache();
+            Bitmap bitmap = i24.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i25){
+            // Get the data from an ImageView as bytes
+            i25.setDrawingCacheEnabled(true);
+            i25.buildDrawingCache();
+            Bitmap bitmap = i25.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i26){
+            // Get the data from an ImageView as bytes
+            i26.setDrawingCacheEnabled(true);
+            i26.buildDrawingCache();
+            Bitmap bitmap = i26.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i27){
+            // Get the data from an ImageView as bytes
+            i27.setDrawingCacheEnabled(true);
+            i27.buildDrawingCache();
+            Bitmap bitmap = i27.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i28){
+            // Get the data from an ImageView as bytes
+            i28.setDrawingCacheEnabled(true);
+            i28.buildDrawingCache();
+            Bitmap bitmap = i28.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i29){
+            // Get the data from an ImageView as bytes
+            i29.setDrawingCacheEnabled(true);
+            i29.buildDrawingCache();
+            Bitmap bitmap = i29.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i30){
+            // Get the data from an ImageView as bytes
+            i30.setDrawingCacheEnabled(true);
+            i30.buildDrawingCache();
+            Bitmap bitmap = i30.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }else if (v == i31){
+            // Get the data from an ImageView as bytes
+            i31.setDrawingCacheEnabled(true);
+            i31.buildDrawingCache();
+            Bitmap bitmap = i31.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        else if (v == i32){
+            // Get the data from an ImageView as bytes
+            i32.setDrawingCacheEnabled(true);
+            i32.buildDrawingCache();
+            Bitmap bitmap = i32.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+            userlogoUploader();
+        }
+        //place your action here
+        Forder fragment = new Forder();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
 
     public void userlogoUploader(){
