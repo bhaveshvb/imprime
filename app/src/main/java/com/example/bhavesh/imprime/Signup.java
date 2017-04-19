@@ -126,7 +126,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener, A
         //String fgender = female_ET.getText().toString().trim();
         String location = loc.trim();
         String contact = contact_ET.getText().toString().trim();
-        String email = name_ET.getText().toString().trim();
+        String email = email_ET.getText().toString().trim();
         String password = password_ET.getText().toString().trim();
         String cnfpassword = confirm_password_ET.getText().toString().trim();
         Toast.makeText(this, userid, Toast.LENGTH_LONG).show();

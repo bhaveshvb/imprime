@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Transaction;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -35,6 +37,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
+import static android.R.id.progress;
 import static android.app.Activity.RESULT_OK;
 
 
@@ -59,6 +62,7 @@ public class fdesign extends Fragment implements View.OnClickListener{
     private DatabaseReference mdatabase;
     private StorageReference mstorageref;
     private byte[] data;
+    private Transaction Handler;
    /* // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -380,11 +384,25 @@ public class fdesign extends Fragment implements View.OnClickListener{
             public void onClick(View view) {
                 //upload the image
                 fileUploader();
-                Forder fragment = new Forder();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();
+                final ProgressDialog pdialog = new ProgressDialog(getActivity());
+                pdialog.setTitle("Saving in database....");
+                pdialog.show();
 
+                new CountDownTimer(5000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        // You don't need anything here
+                    }
+
+                    public void onFinish() {
+                        pdialog.dismiss();
+                        Forder fragment = new Forder();
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, fragment);
+                        fragmentTransaction.commit();
+
+                    }
+                }.start();
 
             }
         });
@@ -774,10 +792,24 @@ public class fdesign extends Fragment implements View.OnClickListener{
             userlogoUploader();
         }
         //place your action here
-        Forder fragment = new Forder();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
+        final ProgressDialog pdialog = new ProgressDialog(getActivity());
+        pdialog.setTitle("Saving in database....");
+        pdialog.show();
+
+        new CountDownTimer(5000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                // You don't need anything here
+            }
+
+            public void onFinish() {
+                pdialog.dismiss();
+                Forder fragment = new Forder();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        }.start();
     }
 
     public void userlogoUploader(){

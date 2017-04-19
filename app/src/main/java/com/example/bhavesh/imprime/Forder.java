@@ -15,6 +15,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.signature.StringSignature;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -72,6 +73,8 @@ public class Forder extends Fragment implements View.OnClickListener{
                 .load(mstorageref.child("userlogos/1"))
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .skipMemoryCache(true)
+                .signature(new StringSignature(String.valueOf("1")))
+                .signature(new StringSignature(String.valueOf(System.currentTimeMillis())))
                 .into(logo);
 
         order.setOnClickListener(this);
